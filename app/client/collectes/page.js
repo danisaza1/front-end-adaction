@@ -1,11 +1,13 @@
-import { Card, CardContent, CardHeader, CardTitle } from "../app/components/card";
-import { Input } from "./components/input";
-import { Button } from "./components/button";
+
+
+import { Card, CardContent, CardHeader, CardTitle } from "../../components/card";
+import { Input } from "../../components/input";
+import { Button } from "../../components/button";
 import { CircleAlert } from 'lucide-react';
 import { MapPin } from 'lucide-react';
-import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue,} from "./components/select"
+import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue,} from "../../components/select"
 import { Save } from 'lucide-react';
-import { Waste } from "./components/waste"
+import { Waste } from "../../components/waste"
 
 
 
