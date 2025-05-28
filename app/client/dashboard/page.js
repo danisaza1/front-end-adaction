@@ -33,7 +33,7 @@ function nextMonth() {
     <div className="flex justify-center w-screen">
     <Card className="w-full max-w-sm">
       <CardHeader>
-           <CardTitle className="flex justify-center">  Bonjour {} </CardTitle>
+           <CardTitle className="flex justify-center">  Bonjour Phoebe ! </CardTitle>
            <div className="flex justify-center">  
             <button onClick={previousMonth} aria-label="Mois précédent"><ChevronLeft /></button>
             <span>{month} {year}</span>
@@ -41,7 +41,7 @@ function nextMonth() {
             </div> 
             </CardHeader>
 
-            
+
            <CardContent>
       <h1></h1>
 
