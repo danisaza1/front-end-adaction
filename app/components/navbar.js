@@ -5,7 +5,7 @@ import { Sprout } from 'lucide-react';
 import { PackagePlus } from 'lucide-react';
 import { Heart } from 'lucide-react';
 import { User } from 'lucide-react';
-
+// import { Volunter } from './components/volunter';
 
 
 
@@ -22,7 +22,7 @@ export default function NavBar({ role }) {
         </>
       ) : role === 'asso' ? ( // Sinon, si le rôle est 'asso'
         <>
-          <Link href="/asso/Gestion">Gestion des bénévoles</Link>
+          <Link href="/asso/Gestion"> <Volunter/>Gestion des bénévoles</Link>
           <Link href="/asso/Leaderboard">Leaderboard</Link>
         </>
       ) : ( // Sinon (pour tout autre rôle ou si aucun rôle n'est spécifié)
