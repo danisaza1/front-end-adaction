@@ -9,9 +9,10 @@ import { Waste } from "./components/waste"
 
 
 
+
 export default function Home() {
   return (
-   
+  
    <Card>
        <CardHeader>
            <CardTitle className="flex justify-center">  <CircleAlert className="mr-2"/> Enregistrer une collecte    </CardTitle>
