@@ -3,9 +3,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "../../components/card"
 import { Button } from "../../components/button";
 import { useState} from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import UseWastesData from "./Data.js";
+import ConteneurDashboard from '../../components/ConteneurDashboard';
 
+// import { FetchData } from './Data';
 
 export default function DashboardPage() {
+    const wastesData = UseWastesData(); 
+
 //  const [firstname, setFirstname] = useState('');
 const[date, setDate] = useState(new Date());
 const month = date.toLocaleString("fr-FR", { month: "long"});
@@ -31,7 +36,7 @@ function nextMonth() {
 
   return (
     <div className="flex justify-center w-screen">
-    <Card className="w-full max-w-sm">
+    <Card className="w-full max-w-lg">
       <CardHeader>
            <CardTitle className="flex justify-center">  Bonjour Phoebe ! </CardTitle>
            <div className="flex justify-center">  
@@ -41,9 +46,8 @@ function nextMonth() {
             </div> 
             </CardHeader>
 
-
            <CardContent>
-      <h1></h1>
+        <ConteneurDashboard wastesData={wastesData}/>
 
            </CardContent>
   

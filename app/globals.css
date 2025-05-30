@@ -1,7 +1,12 @@
 @import "tailwindcss";
-@import "tw-animate-css";
+ @import "tw-animate-css"; 
+@custom-variant dark (&:is(.dark *)); 
+/* 
+@tailwind base;
+@tailwind components;
+@tailwind utilities; */
 
-@custom-variant dark (&:is(.dark *));
+
 
 /* Variables */
 :root {
@@ -949,3 +954,6 @@ footer {
     @apply bg-background text-foreground;
   }
 }
+
+/* tailwind classes for backgrounds - prevent purge */
+
