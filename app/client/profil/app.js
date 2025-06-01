@@ -1,40 +1,44 @@
-
 'use client'
 import React, { useState } from 'react';
 import UserTable from '../tables/userTables';
 import AddUserForm from './addUserForm';
 import EditUserForm from './editUserForm';
 
-export default function App(){
-  const usersData = [
-        {id: 1, name: 'Petronela', username: 'delyoara'},
-        {id: 2, name: 'Romain', username: 'neo3589'},
-        {id: 3, name: 'Renaud', username: 'rerefenec'},
-        {id: 4, name: 'Daniela', username: 'danie'},
-    ]
+export default async function App(){
+
+const volunteers = require('./fetchVolunteers')  
+
+  // const usersData = [
+  //       {id: 1, name: 'Petronela', username: 'delyoara'},
+  //       {id: 2, name: 'Romain', username: 'neo3589'},
+  //       {id: 3, name: 'Renaud', username: 'rerefenec'},
+  //       {id: 4, name: 'Daniela', username: 'danie'},
+  //   ]
   const [editing, setEditing] = useState(false)
   
-  const initialFormState = { id: null, name: '', username: '' }
-  const [currentUser, setCurrentUser] = useState(initialFormState)
-  const [users, setUsers] = useState(usersData)
+  const initialFormState = { id: null, firstname: '', lastname: '' }
+  const [currentBen, setCurrentBen] = useState(initialFormState)
+  // const [users, setUsers] = useState(usersData)
+  const [benevoles, setBenevoles] = useState(volunteers)
 
-  const addUser = (user) => {
-    user.id = users.length + 1
-    setUsers([...users, user])
+
+  const addBen = (benevole) => {
+    benevole.id = benevoles.length + 1
+    setBenevoles([...benevoles, benevole])
   }
 
-  const editRow = (user) => {
+  const editRow = (benevole) => {
   setEditing(true)
-  setCurrentUser({ id: user.id, name: user.name, username: user.username })
+  setCurrentBen({ id: benevole.id, firstname: benevole.firstname, lastname: benevole.lastname })
   }
 
-  const deleteUser = (id) => {
-    setUsers(users.filter((user) => user.id !== id))
+  const deleteBen = (id) => {
+    setBenevoles(benevoles.filter((benevole) => benevole.id !== id))
   }
 
-  const updateUser = (id, updatedUser) => {
+  const updateBen = (id, updatedBen) => {
   setEditing(false)
-  setUsers(users.map((user) => (user.id === id ? updatedUser : user)))
+  setBenevoles(benevoles.map((benevole) => (benevole.id === id ? updatedBen : benevole)))
   } 
 
   return (
@@ -42,7 +46,7 @@ export default function App(){
       <h1>CRUD App with Hooks</h1>
       <div className="flex-row">
         <div className="flex-large">
-          <UserTable users={users} editRow={editRow} deleteUser={deleteUser} />
+          <UserTable benevoles={benevoles} editRow={editRow} deleteBen={deleteBen} />
         </div>
         <div className="flex-large">
             <div className="flex-large">
@@ -52,14 +56,14 @@ export default function App(){
       <EditUserForm
         initialFormState
         setEditing={setEditing}
-        currentUser={currentUser}
-        updateUser={updateUser}
+        currentBen={currentBen}
+        updateBen={updateBen}
       />
     </div>
   ) : (
     <div>
       <h2>Add user</h2>
-      <AddUserForm addUser={addUser} />
+      <AddUserForm addBen={addBen} />
     </div>
   )}
 </div>

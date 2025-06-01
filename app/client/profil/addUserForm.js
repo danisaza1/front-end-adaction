@@ -2,37 +2,37 @@
 import React, { useState } from 'react'
 
 export default function AddUserForm (props){
-  const initialFormState = { id: null, name: '', username: '' }
-  const [user, setUser] = useState(initialFormState)
+  const initialFormState = { id: null, firstname: '', lastname: '' }
+  const [benevole, setBen] = useState(initialFormState)
 
   const handleInputChange = (event) => {
     const { name, value } = event.target
 
-    setUser({ ...user, [name]: value })
+    setBen({ ...benevole, [name]: value })
   }
 
   return (
     <form
       onSubmit={(event) => {
         event.preventDefault()
-        if (!user.name || !user.username) return
+        if (!benevole.firstname || !benevole.lastname) return
 
-        props.addUser(user)
-        setUser(initialFormState)
+        props.addBen(benevole)
+        setBen(initialFormState)
       }}
     >
       <label>Name</label>
       <input
         type="text"
         name="name"
-        value={user.name}
+        value={benevole.firstname}
         onChange={handleInputChange}
       />
       <label>Username</label>
       <input
         type="text"
         name="username"
-        value={user.username}
+        value={benevole.lastname}
         onChange={handleInputChange}
       />
       <button>Add new user</button>

@@ -2,12 +2,12 @@
 import React, { useState } from 'react'
 
 export default function EditUserForm (props){
-  const [user, setUser] = useState(props.currentUser)
+  const [benevole, setBen] = useState(props.currentBen)
 
   const handleInputChange = (event) => {
     const { name, value } = event.target
 
-    setUser({ ...user, [name]: value })
+    setBen({ ...benevole, [name]: value })
   }
 
 
@@ -16,21 +16,21 @@ export default function EditUserForm (props){
       onSubmit={(event) => {
         event.preventDefault()
 
-        props.updateUser(user.id, user)
+        props.updateBen(benevole.id, benevole)
       }}
     >
       <label>Name</label>
       <input
         type="text"
         name="name"
-        value={user.name}
+        value={benevole.firstname}
         onChange={handleInputChange}
       />
       <label>Username</label>
       <input
         type="text"
         name="username"
-        value={user.username}
+        value={benevole.lastname}
         onChange={handleInputChange}
       />
       <button>Update user</button>

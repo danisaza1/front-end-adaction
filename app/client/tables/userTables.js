@@ -11,17 +11,17 @@ export default function UserTable (props){
       </tr>
     </thead>
         <tbody>
-      {props.users.length > 0 ? (
-        props.users.map((user) => (
-          <tr key={user.id}>
-            <td>{user.name}</td>
-            <td>{user.username}</td>
+      {props.benevoles.length > 0 ? (
+        props.benevoles.map((benevole) => (
+          <tr key={benevole.id}>
+            <td>{benevole.firstname}</td>
+            <td>{benevole.lastname}</td>
             <td>
               <button
-                onClick={() => props.deleteUser(user.id)}
+                onClick={() => props.deleteBen(benevole.id)}
                 className="button muted-button">Delete</button>
                 <button
-                onClick={() => {props.editRow(user)}}
+                onClick={() => {props.editRow(benevole)}}
                 className="button muted-button">Edit</button>
             </td>
           </tr>
