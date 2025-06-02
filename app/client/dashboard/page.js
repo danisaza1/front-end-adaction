@@ -10,8 +10,11 @@ import ConteneurDashboard from '../../components/ConteneurDashboard';
 
 export default function DashboardPage() {
     const wastesData = UseWastesData(); 
+    const firstname = wastesData.length > 0 ? wastesData[0].firstname : "";
 
-//  const [firstname, setFirstname] = useState('');
+    // const [userData, setUserData] = useState({firstname: "", waste_type: []});
+
+// const[name, setName] = useState (new Name());
 const[date, setDate] = useState(new Date());
 const month = date.toLocaleString("fr-FR", { month: "long"});
 const year = date.getFullYear();
@@ -32,13 +35,15 @@ function nextMonth() {
   return;
 }
     setDate(nextMonth);
-  }
+  };
+
+
 
   return (
-    <div className="flex justify-center w-screen">
+    <div className="flex justify-center w-screen pt-2">
     <Card className="w-full max-w-lg">
       <CardHeader>
-           <CardTitle className="flex justify-center">  Bonjour Phoebe ! </CardTitle>
+           <CardTitle className="flex justify-center">  Bonjour {firstname} ! </CardTitle>
            <div className="flex justify-center">  
             <button onClick={previousMonth} aria-label="Mois précédent"><ChevronLeft /></button>
             <span>{month} {year}</span>

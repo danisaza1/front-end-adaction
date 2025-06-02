@@ -14,6 +14,9 @@ export default function UseWastesData () {
     
   }, []);
 return data;
+
+}
+
 // return (
 //   <div>
 //     {data.map(item => (
@@ -24,4 +27,3 @@ return data;
 //     ))}
 //   </div>
 // );
-}

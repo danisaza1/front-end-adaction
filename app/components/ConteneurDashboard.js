@@ -19,10 +19,9 @@ const icons = {
   others: { bg: 'bg-red-400', icon: CircleHelp, iconColor: 'text-white', title: 'Autre' },
 };
 export default function ConteneurDashboard ({wastesData}) {
-console.log("wastesData reçu dans ConteneurDashboard :", wastesData);
+console.log("ConteneurDashboard :", wastesData);
   return (
-    <Card>
-  <Card>
+  <Card style={{ boxShadow: 'none'}}>
       <CardContent className="grid grid-cols gap-2 bg-white">
         {wastesData.map(({ id, type, quantity }) => {
           console.log('type:', type);
@@ -38,7 +37,6 @@ console.log("wastesData reçu dans ConteneurDashboard :", wastesData);
           );
         })}
       </CardContent>
-    </Card>
     </Card>
 );
 }
