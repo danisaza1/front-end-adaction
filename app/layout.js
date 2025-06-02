@@ -37,14 +37,14 @@ export default function RootLayout({ children }) {
 }
 
 
-const ajoutForm = document.getElementById('ajoutForm')
-ajoutForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const element = document.getElementById('element').value;
-    await fetch('/ajouter', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ element }),
-    });
-    element.value = '';
-  }); 
+// const ajoutForm = document.getElementById('ajoutForm')
+// ajoutForm.addEventListener('submit', async (e) => {
+//     e.preventDefault();
+//     const element = document.getElementById('element').value;
+//     await fetch('/ajouter', {
+//       method: 'POST',
+//       headers: { 'Content-Type': 'application/json' },
+//       body: JSON.stringify({ element }),
+//     });
+//     element.value = '';
+//   }); 
