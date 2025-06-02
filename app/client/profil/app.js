@@ -6,14 +6,14 @@ import EditUserForm from './editUserForm';
 
 export default function App(){
 
-const volunteers = require('./fetchVolunteers')  
+// const volunteers = require('./fetchVolunteers')  
 console.log('😁😁', volunteers)
-  // const usersData = [
-  //       {id: 1, name: 'Petronela', username: 'delyoara'},
-  //       {id: 2, name: 'Romain', username: 'neo3589'},
-  //       {id: 3, name: 'Renaud', username: 'rerefenec'},
-  //       {id: 4, name: 'Daniela', username: 'danie'},
-  //   ]
+  const volunteers = [
+        {id: 1, name: 'Petronela', username: 'delyoara'},
+        {id: 2, name: 'Romain', username: 'neo3589'},
+        {id: 3, name: 'Renaud', username: 'rerefenec'},
+        {id: 4, name: 'Daniela', username: 'danie'},
+    ]
   const [editing, setEditing] = useState(false)
   
   const initialFormState = { id: null, firstname: '', lastname: '' }
