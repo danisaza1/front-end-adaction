@@ -1,13 +1,13 @@
-'use client'
+'use client';
 import React, { useState } from 'react';
 import UserTable from '../tables/userTables';
 import AddUserForm from './addUserForm';
 import EditUserForm from './editUserForm';
 
-export default async function App(){
+export default function App(){
 
 const volunteers = require('./fetchVolunteers')  
-
+console.log('😁😁', volunteers)
   // const usersData = [
   //       {id: 1, name: 'Petronela', username: 'delyoara'},
   //       {id: 2, name: 'Romain', username: 'neo3589'},
@@ -68,7 +68,7 @@ const volunteers = require('./fetchVolunteers')
   )}
 </div>
           <h2>View users</h2>
-          {/* <UserTable users={users} /> */}
+          {/* <UserTable benevoles={benevoles} /> */}
         </div>
       </div>
     </div>
