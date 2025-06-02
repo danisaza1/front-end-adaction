@@ -1,6 +1,5 @@
 "use client";
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/card";
-import { Button } from "../../components/button";
 import { useState} from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import UseWastesData from "./Data.js";
