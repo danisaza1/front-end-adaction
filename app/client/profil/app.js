@@ -1,6 +1,5 @@
 'use client';
 import React, { useState } from 'react';
-import UserTable from '../tables/userTables';
 import AddUserForm from './addUserForm';
 import EditUserForm from './editUserForm';
 

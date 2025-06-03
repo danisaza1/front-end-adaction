@@ -1,22 +1,21 @@
 'use client'
-
-import { useState } from "react";
+// import { useState } from "react";
 
 export default function FormProfil (props) {
-    const [volunteers, setVolunteers] = useState(props.currentVolunteers);
+    // const [volunteers, setVolunteers] = useState(props.currentVolunteers);
 
-    const handleInputChange = (event) => {
+    // const handleInputChange = (event) => {
 
-    const { firstname, firstnameValue } = event.target
-    const { lastname, lastnameValue } = event.target
-    const { location, locationValue } = event.target
+    // const { firstname, firstnameValue } = event.target
+    // const { lastname, lastnameValue } = event.target
+    // const { location, locationValue } = event.target
 
-        setVolunteers({ ...volunteers, 
-            [firstname]: firstnameValue,
-            [lastname]: lastnameValue,
-            [location]: locationValue
-        })
-    }
+    //     setVolunteers({ ...volunteers, 
+    //         [firstname]: firstnameValue,
+    //         [lastname]: lastnameValue,
+    //         [location]: locationValue
+    //     })
+    // }
 
 
 
@@ -27,8 +26,8 @@ export default function FormProfil (props) {
         <form   onSubmit={(event) => {
         event.preventDefault()
 
-        props.updateBen(volunteers.id, volunteers)
-        }}
+        props.updateBen(benevole.id, benevole)
+      }}
 
         className="flex flex-col">
                 <label className="text-xl">Name</label>
@@ -36,7 +35,7 @@ export default function FormProfil (props) {
                 type="text"
                 name="name"
                 // value={volunteers.firstname}
-                onChange={handleInputChange}
+                // onChange={handleInputChange}
             />
             <label className="text-xl">Username</label>
             <input
