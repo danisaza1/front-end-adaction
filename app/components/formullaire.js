@@ -111,7 +111,7 @@ export default function Form() {
         
             const data = {
               firstname,
-              lastname,
+              lastname
               
             };
         
@@ -120,7 +120,7 @@ export default function Form() {
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(data),
             });
-        
+        console.log("dede")
             const json = await res.json();
             console.log("Réponse du serveur :", json);
           };
@@ -134,6 +134,7 @@ export default function Form() {
     event.preventDefault()
     console.log("rere")
     console.log("formulaire",formData)
+    console.log(data)
    }
    
     return (
