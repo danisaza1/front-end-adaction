@@ -6,14 +6,26 @@ export default function Form() {
     const [formData, setFormData] = useState({})
 
     const handleChange = async(event) => {
-const {type, name, value} =event.target
-setFormData(prev =>{
-    return {
-        ...prev,
-        [name]: value
-    }
-})
-    }
+
+        const handleSubmit = async (e) => {
+            e.preventDefault();
+        
+            const data = {
+              firstname,
+              lastname,
+              
+            };
+        
+            const res = await fetch("http://localhost:3001/profil", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(data),
+            });
+        
+            const json = await res.json();
+            console.log("Réponse du serveur :", json);
+          };
+}
 
   
   
