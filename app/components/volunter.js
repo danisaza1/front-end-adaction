@@ -1,6 +1,7 @@
 
 // import Cities from "./cities";
-import Form from "./imput";
+import Formulaire from "./formullaire";
+// import Form from "./imput";
 import ListOfVolunteers from "./list-of-volunteers";
 import NewVolunteers from "./newVolunters";
 import Test from "./test";
@@ -23,7 +24,7 @@ export default function Volonters (){
 
      
         < Test/>
-        <Form/>
+        <Formulaire/>
     {/* <Cities/> */}
      </>
     )
