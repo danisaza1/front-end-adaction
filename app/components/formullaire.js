@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 
+<<<<<<< HEAD
 
 export default function Formulaire() {
 
@@ -98,3 +99,66 @@ export default function ListOfVolunteers (){
     </>
     )
 }  
+=======
+export default function Form() {
+
+    const [formData, setFormData] = useState({})
+
+    const handleChange = async(event) => {
+
+        const handleSubmit = async (e) => {
+            e.preventDefault();
+        
+            const data = {
+              firstname,
+              lastname,
+              
+            };
+        
+            const res = await fetch("http://localhost:3001/profil", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(data),
+            });
+        
+            const json = await res.json();
+            console.log("Réponse du serveur :", json);
+          };
+}
+
+  
+  
+  
+  
+    const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log("rere")
+    console.log("formulaire",formData)
+   }
+   
+    return (
+        <div className="Style.form">
+            <form onSubmit = {handleSubmit}>
+                <label>nom :</label>
+                <input 
+                type = "text"
+                placeholder= "entrez votre nom"
+                value= {formData.nom  || ""}
+                onChange={handleChange}
+                name="nom"
+                />
+
+                <label>prenom :</label>
+                <input 
+                type = "text"
+                placeholder= "entrez votre nom"
+                value= {formData.prenom  || ""}
+                onChange={handleChange}
+                name="prenom"
+                />
+                <button type = "submit">envoyer</button>
+            </form>
+        </div>
+    )
+}
+>>>>>>> 698e299 (troisjuin)

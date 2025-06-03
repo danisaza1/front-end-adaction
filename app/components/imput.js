@@ -5,7 +5,7 @@ export default function Form() {
 
     const [formData, setFormData] = useState({})
 
-    const handleChange = (event) => {
+    const handleChange = async(event) => {
 const {type, name, value} =event.target
 setFormData(prev =>{
     return {
@@ -15,7 +15,11 @@ setFormData(prev =>{
 })
     }
 
-   const handleSubmit = (event) => {
+  
+  
+  
+  
+    const handleSubmit = (event) => {
     event.preventDefault()
     console.log("rere")
     console.log("formulaire",formData)
