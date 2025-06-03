@@ -30,6 +30,7 @@ const [points, setPoints] = useState("");
      asso_name : "assoName", points : parseInt("12"), volunteerId : 2
   }),
   });
+  
   const json = await response.json();
   console.log("Donation envoyée avec succès !", json);
   };
