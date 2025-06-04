@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, Box} from '@mui/material';
 import { CardFooter } from './card';
 import { Button } from './button';
 
-export default function DonationCard ({ emoji, assoName, desc, points}) {
+export default function DonationCard ({ emoji, assoName, desc, points,fetchD}) {
   return (
 
    <Card className="flex flex-col items-start justify-between border border-gray-100 rounded-lg p-3 transition-all duration-200 ease-in transform hover:-translate-y-1 hover:scale-102">
@@ -15,7 +15,7 @@ export default function DonationCard ({ emoji, assoName, desc, points}) {
        <span>{points}</span>
   <span>points</span>
     </span>
-  <Button className="bg-emerald-600 hover:bg-emerald-700 flex flex-auto" variant="default" size="default" onClick={() => alert(`Merci pour votre don de ${points} !`)}>
+  <Button className="bg-emerald-600 hover:bg-emerald-700 flex flex-auto" variant="default" size="default" onClick={() => fetchD(assoName, parseInt(points))}>
           Faire un don
         </Button>
       </div>
