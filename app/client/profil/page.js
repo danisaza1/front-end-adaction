@@ -6,7 +6,7 @@ export default function FormProfil () {
     const [ lastname, setLastName ] = useState();
     const [ location, setLocation ] = useState()
     
-        async function fetchData(firstname){
+        async function fetchData(){
           try {
             const res = await fetch('http://localhost:3001/profil')
             const volunteers = await res.json()
