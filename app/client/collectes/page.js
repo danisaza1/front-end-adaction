@@ -18,11 +18,9 @@ import {
   SelectValue,
 } from "../../components/select";
 import { Waste } from "../../components/waste";
-import Date from "../../components/date";
 
 
 export default function Collectes() {
-  const today = Date();
 
   const [date, setDate] = useState(""); //Usestate pour garder des valeurs. Vide pour enregistrer les données du client. SetDate change la valeur.
   const [city, setCity] = useState("");
@@ -132,7 +130,7 @@ export default function Collectes() {
                 <Input
                   className="mt-2"
                   type="date"
-                  value={date || today}
+                  value={date}
                   onChange={(e) => setDate(e.target.value)}
                 />
               </div>
