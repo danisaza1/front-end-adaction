@@ -7,23 +7,12 @@ import {
   CardHeader,
   CardTitle,
 } from "../../components/card";
-import { Input } from "../../components/input";
 import { Button } from "../../components/button";
 import { CircleAlert, MapPin, Save } from "lucide-react";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "../../components/select";
 import { Waste } from "../../components/waste";
-import Date from "../../components/date";
-
+import SimpleSelect from "../../components/simpleselect";
 
 export default function Collectes() {
-  const today = Date();
-
   const [date, setDate] = useState(""); //Usestate pour garder des valeurs. Vide pour enregistrer les données du client. SetDate change la valeur.
   const [city, setCity] = useState("");
   const [cities, setCities] = useState([]); //Ici, nous faisons appel à un tableau que nous avons prédéfini.
@@ -43,8 +32,6 @@ export default function Collectes() {
 
     fetchCities();
   }, []);
-
-
 
   // Ajouter ou retirer un type de déchet
   const changeWaste = (label) => {
@@ -80,7 +67,6 @@ export default function Collectes() {
       wasteTypes: wasteData,
     };
 
-    
     const res = await fetch("http://localhost:3001/collectes", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -129,11 +115,11 @@ export default function Collectes() {
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 ">
               <div>
                 <label className="p-2 ">Date *</label>
-                <Input
-                  className="mt-2"
+                <input
                   type="date"
-                  value={date || today}
+                  value={date}
                   onChange={(e) => setDate(e.target.value)}
+                  className="mt-2"
                 />
               </div>
 
@@ -142,18 +128,7 @@ export default function Collectes() {
                   <MapPin />
                   Localisation *
                 </label>
-                <Select value={city} onValueChange={setCity}>
-                  <SelectTrigger className="w-[100%]">
-                    <SelectValue placeholder="Sélectionnez une ville" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {cities.map((c) => (
-                      <SelectItem key={c.id} value={c.id.toString()}>
-                        {c.city_name}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                 <SimpleSelect options={cities} value={city} onChange={setCity} />
               </div>
 
               <label>Type de déchet *</label>
