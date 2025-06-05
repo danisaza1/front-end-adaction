@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 
 export default function UseWastesData () {
@@ -9,6 +10,7 @@ export default function UseWastesData () {
     console.log(json);
       setData(json);
     }
+
  useEffect(() => {
     fetchData();
     
