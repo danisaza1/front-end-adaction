@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
       >
           <Header />
            {/* Ici, nous passons le rôle 'client' à la NavBar */}
-          <NavBar role="client" />
+          
         {children}
        
         <Footer />

@@ -103,6 +103,8 @@ export default function Collectes() {
   };
 
   return (
+      <>
+              <NavBar role="client"/>
     <div className="p-9">
       <CardContent className="bg-white-200 w-full sm:w-[80%] md:w-[60%] lg:w-[35%] mx-auto shadow-lg rounded-lg p-4 border">
         <Card className=" shadow-lg">
@@ -148,5 +150,6 @@ export default function Collectes() {
         </Card>
       </CardContent>
     </div>
+    </>
   );
 }

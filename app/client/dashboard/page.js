@@ -39,6 +39,8 @@ function nextMonth() {
 
 
   return (
+      <>
+              <NavBar role="client"/>
     <div className="flex justify-center w-screen pt-2">
     <Card className="w-full max-w-lg">
       <CardHeader>
@@ -57,5 +59,6 @@ function nextMonth() {
   
     </Card>
     </div>
+    </>
   );
 }

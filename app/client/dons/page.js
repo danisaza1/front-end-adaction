@@ -1,15 +1,12 @@
 "use client";
 import {
   Card,
-  CardContent,
   CardHeader,
   CardTitle,
 } from "../../components/card";
-import { Button } from "../../components/button";
 import { Gift } from "lucide-react";
 import DonationCard from "../../components/DonationCard";
 
-import { useState } from 'react';
 
 export default function Dons() {
   // let dataDons = { asso_name, points, volunteer_id};
@@ -33,6 +30,8 @@ export default function Dons() {
   // return data;
   
   return (
+      <>
+              <NavBar role="client"/>
        <Card className="pt-2">
     <Card className="flex justify-center w-full max-w-md mx-auto p-3">
       <CardHeader className="w-full">
@@ -75,6 +74,7 @@ export default function Dons() {
       />
       </Card>
     </Card>
+    </>
   );
 
 }
