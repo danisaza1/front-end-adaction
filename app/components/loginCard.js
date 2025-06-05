@@ -23,8 +23,8 @@ export default function LoginCard() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-       <button id="button" type="submit" class="mt-5 gap-2 flex justify-center bg-emerald-600 shadow-xl hover:bg-emerald-500 text-white font-bold border rounded-xl shadow p-3 w-full"> <LogIn /> Se connecter</button>
-        <button id="button" type="submit" class="mt-5 gap-2 flex justify-center bg-emerald-600 shadow-xl hover:bg-emerald-500 text-white font-bold border rounded-xl shadow p-3 w-full" >  <Users /> Gérer les bénévoles</button> 
+       <button id="button" type="submit" className="mt-5 gap-2 flex justify-center bg-emerald-600 shadow-xl hover:bg-emerald-500 text-white font-bold border rounded-xl shadow p-3 w-full"> <LogIn /> Se connecter</button>
+        <button id="button" type="submit" className="mt-5 gap-2 flex justify-center bg-emerald-600 shadow-xl hover:bg-emerald-500 text-white font-bold border rounded-xl shadow p-3 w-full" >  <Users /> Gérer les bénévoles</button> 
         </div>
       </form>
     </div>
