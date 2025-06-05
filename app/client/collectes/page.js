@@ -10,9 +10,11 @@ import {
 import { Button } from "../../components/button";
 import { CircleAlert, MapPin, Save } from "lucide-react";
 import { Waste } from "../../components/waste";
-import SimpleSelect from "../../components/simpleselect";
+
+
 
 export default function Collectes() {
+
   const [date, setDate] = useState(""); //Usestate pour garder des valeurs. Vide pour enregistrer les données du client. SetDate change la valeur.
   const [city, setCity] = useState("");
   const [cities, setCities] = useState([]); //Ici, nous faisons appel à un tableau que nous avons prédéfini.
