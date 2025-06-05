@@ -6,6 +6,7 @@ import {
 } from "../../components/card";
 import { Gift } from "lucide-react";
 import DonationCard from "../../components/DonationCard";
+import NavBar from "app/components/navbar";
 
 
 export default function Dons() {

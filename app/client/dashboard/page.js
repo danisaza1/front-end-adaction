@@ -4,6 +4,7 @@ import { useState} from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import UseWastesData from "./Data.js";
 import ConteneurDashboard from '../../components/ConteneurDashboard';
+import  NavBar  from "../../components/navbar";
 
 // import { FetchData } from './Data';
 
