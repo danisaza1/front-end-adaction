@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 
+
 export default function Formulaire() {
 
     const [formData, setFormData] = useState({firstname:'',lastname:'',location:'',email:'',password:''})
