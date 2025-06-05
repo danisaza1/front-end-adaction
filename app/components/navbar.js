@@ -1,3 +1,5 @@
+"use client";
+
 import Link from 'next/link';
 import { Sprout } from 'lucide-react';
 import { PackagePlus } from 'lucide-react';
