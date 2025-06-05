@@ -1,10 +1,10 @@
 "use client";
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/card";
-import { Button } from "../../components/button";
 import { useState} from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import UseWastesData from "./Data.js";
 import ConteneurDashboard from '../../components/ConteneurDashboard';
+import  NavBar  from "../../components/navbar";
 
 // import { FetchData } from './Data';
 
@@ -40,6 +40,8 @@ function nextMonth() {
 
 
   return (
+      <>
+              <NavBar role="client"/>
     <div className="flex justify-center w-screen pt-2">
     <Card className="w-full max-w-lg">
       <CardHeader>
@@ -58,5 +60,6 @@ function nextMonth() {
   
     </Card>
     </div>
+    </>
   );
 }
