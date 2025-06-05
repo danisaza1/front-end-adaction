@@ -2,7 +2,10 @@
 import { useState } from "react";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 039f2d89608a78713d6d717b6d38d8f6f42f8d59
 export default function Formulaire() {
 
     const [formData, setFormData] = useState({firstname:'',lastname:'',location:'',email:'',password:''})
@@ -81,6 +84,7 @@ export default function Formulaire() {
           )
  }
 
+<<<<<<< HEAD
 
 
  const res= await fetch("http://localhost:3001/profil");
@@ -178,6 +182,8 @@ export default function Form() {
           )
  }
 
+=======
+>>>>>>> 039f2d89608a78713d6d717b6d38d8f6f42f8d59
                       
          
      
