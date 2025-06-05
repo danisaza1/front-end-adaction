@@ -10,6 +10,8 @@ import {
 import { Button } from "../../components/button";
 import { CircleAlert, MapPin, Save } from "lucide-react";
 import { Waste } from "../../components/waste";
+import NavBar from "app/components/navbar";
+import SimpleSelect from "app/components/simpleselect";
 
 
 
@@ -85,6 +87,8 @@ export default function Collectes() {
     const quantity = selected?.quantity || 0; // Si selected existe, je prends sa quantité, sinon je mets 0.
 
     return (
+
+      
       <div key={label} onClick={() => changeWaste(label)}>
         <Waste
           emoji={emoji}

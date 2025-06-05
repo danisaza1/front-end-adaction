@@ -1,6 +1,8 @@
 
 'use client'
 import { useEffect, useState } from "react";
+import NavBar from "app/components/navbar";
+
 
 export default function FormProfil () { 
     const [ firstname, setFirstName ] = useState();
@@ -38,6 +40,8 @@ export default function FormProfil () {
     }
 
     return (
+       <>
+                    <NavBar role="client"/>
         <div className=" flex flex-col justify-evenly w-110 h-110 m-10">
         <h2 className="text-4xl text-center font-bold">Votre Profil</h2>
         <form   
@@ -66,5 +70,6 @@ export default function FormProfil () {
             <button className="bg-green-600 py-3 px-2 mt-7 rounded-lg shadow-lg">Update user</button>
         </form>
     </div>
+    </>
     )
 }
