@@ -2,7 +2,6 @@ import React from 'react';
 import { Card, CardContent, CardHeader } from '@mui/material';
 // import WasteCard from WasteCard;
 import { Cigarette, Package, Wine, Trash2, Smartphone, CircleHelp  } from 'lucide-react';
-import { Waste } from './waste';
 import WasteCard from './WasteCard';
 
 //    <Wine />   <Smartphone /> for elect 

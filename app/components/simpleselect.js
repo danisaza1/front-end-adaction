@@ -1,3 +1,6 @@
+"use client";
+
+
 
 export default function SimpleSelect({ options, value, onChange }) {
   return (
