@@ -92,9 +92,11 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Card } from "../../components/card";
+import { useParams } from "next/navigation";
 
 export default function FormProfil() {
-  const userId = 2; // 🔁 à remplacer par l'ID réel (depuis session, token, params, etc.)
+  const params = useParams();
+  const userId = params?.id;
 
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
