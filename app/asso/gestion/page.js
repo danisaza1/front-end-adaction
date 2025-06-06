@@ -15,6 +15,8 @@ import { Input } from "../../components/input";
 import SimpleSelect from "../../components/simpleselect";
 import { useState, useEffect } from "react";
 import NavBar from "../../components/navbar";
+import Formulaire from "app/components/formulaire";
+import ListOfVolunteers from "app/components/list-of-volunteers";
 
 
 
@@ -49,7 +51,7 @@ return (
     <>
           <NavBar role="asso"/>
 
- <form className=" flex justify-center p-4">
+ <div className=" flex justify-center p-4">
  
 
 
@@ -60,6 +62,7 @@ return (
                <Button  type="submit" className="flex gap-2" >
                  <UserPlus className="text-white"/> <p className="text-white normal-case">Ajouter un.e bénévole</p>
               </Button>
+              <Formulaire />
             </div>
            <div className="flex flex-row justify-between w-full items-center">
     <div>
@@ -71,104 +74,13 @@ return (
     </div>
 </div>
           </CardHeader>
-          <CardContent className="flex flex-col items-start">
-
-            <div className="flex flex-row gap-32 border rounded-md p-2 m-2 w-120 justify-between ">
-                <div className="flex flex-row gap-4">
-                    <h3>Monica Geller</h3> <p className="text-gray-400"> Paris</p>
-                </div>
-                <div className="flex ">
-                    <Button className="p-6 items-center">
-                         <Pen  className="text-blue-500 bg-blue-200 rounded-md  "/>
-                    </Button>
-                    <Button>
-                        <Trash2 className="text-red-400 bg-rose-200 rounded-md" />
-                    </Button>
-                </div>
-            </div>
-
-            <div className="flex flex-row gap-32 border rounded-md p-2 m-2 w-120 justify-between ">
-                <div className="flex flex-row gap-4">
-                    <h3>Phoebe Buffay </h3> <p className="text-gray-400"> Nantes</p>
-                </div>
-                <div className="flex ">
-                    <Button className="p-6 items-center">
-                         <Pen  className="text-blue-500 bg-blue-200 rounded-md  "/>
-                    </Button>
-                    <Button>
-                        <Trash2 className="text-red-400 bg-rose-200 rounded-md" />
-                    </Button>
-                </div>
-            </div>
-
-            <div className="flex flex-row gap-32 border rounded-md p-2 m-2 w-120 justify-between ">
-                <div className="flex flex-row gap-4">
-                    <h3>Rachel Green</h3> <p className="text-gray-400"> Paris</p>
-                </div>
-                <div className="flex items-center">
-                    <Button className="p-6">
-                         <Pen  className="text-blue-500 bg-blue-200 rounded-md  "/>
-                    </Button>
-                    <Button>
-                        <Trash2 className="text-red-400 bg-rose-200 rounded-md" />
-                    </Button>
-                </div>
-            </div>
-
-            <div className="flex flex-row gap-32 border rounded-md p-2 m-2 w-120 justify-between ">
-                <div className="flex flex-row gap-4">
-                    <h3>Joey Tribbiani </h3> <p className="text-gray-400"> Nantes</p>
-                </div>
-                <div>
-                    <Button className="p-6">
-                         <Pen  className="text-blue-500 bg-blue-200 rounded-md  "/>
-                    </Button>
-                    <Button>
-                        <Trash2 className="text-red-400 bg-rose-200 rounded-md" />
-                    </Button>
-                </div>
-            </div>
-
-
-            <div className="flex flex-row gap-32 border rounded-md p-2 m-2 w-120 justify-between ">
-                <div className="flex flex-row gap-4">
-                    <h3>Chandler Bing  </h3> <p className="text-gray-400"> Lyon</p>
-                </div>
-                <div>
-                    <Button className="p-6">
-                         <Pen  className="text-blue-500 bg-blue-200 rounded-md  "/>
-                    </Button>
-                    <Button>
-                        <Trash2 className="text-red-400 bg-rose-200 rounded-md" />
-                    </Button>
-                </div>
-            </div>
-
-
-            <div className="flex flex-row gap-32 border rounded-md p-2 m-2 w-120 justify-between ">
-                <div className="flex flex-row gap-4">
-                    <h3>Ross Geller </h3> <p className="text-gray-400"> Bordeaux</p>
-                </div>
-                <div>
-                    <Button className="p-6">
-                         <Pen  className="text-blue-500 bg-blue-200 rounded-md  "/>
-                    </Button>
-                    <Button>
-                        <Trash2 className="text-red-400 bg-rose-200 rounded-md" />
-                    </Button>
-                </div>
-            </div>
-
-
-
-            
-          </CardContent>
+        <ListOfVolunteers/> 
          
          
          </Card>
          </CardContent>
 
-</form>
+</div>
 </>
 );
 }
