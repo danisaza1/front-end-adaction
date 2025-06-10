@@ -2,7 +2,7 @@
 
 
 
-export default function SimpleSelect({ options, value, onChange }) {
+export default function SimpleSelect({ options = [], value, onChange }) {
   return (
     <select
       className="w-full border border-gray-300 rounded-md p-2"
@@ -10,11 +10,15 @@ export default function SimpleSelect({ options, value, onChange }) {
       onChange={(e) => onChange(e.target.value)}
     >
       <option value="">Sélectionnez une ville</option>
-      {options.map((opt) => (
-        <option key={opt.id} value={opt.id.toString()}>
-          {opt.city_name}
-        </option>
-      ))}
+      {Array.isArray(options) &&
+        options.map((opt) => (
+          <option key={opt.id} value={opt.id.toString()}>
+            {opt.city_name}
+          </option>
+        ))}
     </select>
   );
 }
+
+
+

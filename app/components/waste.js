@@ -2,7 +2,6 @@
 
 
 import { Button } from "./button";
-import { Input } from "./input";
 
 function Waste({ emoji, label, quantity, onDecrease, onIncrease, onChange }) {
   return (
@@ -19,7 +18,7 @@ function Waste({ emoji, label, quantity, onDecrease, onIncrease, onChange }) {
           {" "}
           -{" "}
         </Button>
-        <Input
+        <input
           min="0"
           max=""
           value={quantity}

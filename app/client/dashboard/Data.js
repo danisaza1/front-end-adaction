@@ -15,7 +15,16 @@ export default function UseWastesData () {
     fetchData();
     
   }, []);
-return data;
+return (
+  <div>
+    {data.map(item => (
+        <div className="card" key={item.id}>
+        {/* <div>{item.id}</div> */}
+        <p>{item.type} <br />Quntité : {item.quantity}</p>
+      </div>
+    ))}
+  </div>
+);
 
 }
 

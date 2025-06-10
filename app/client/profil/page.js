@@ -89,105 +89,76 @@
 //     </form>
 //   );
 // }
-"use client";
-import { useEffect, useState } from "react";
+'use client';
+import NavBar from "../../components/navbar";
 import { Card } from "../../components/card";
-import NavBar from "app/components/navbar";
+import profilData from "./dataProfil.js";
 
 export default function FormProfil() {
-  const userId = 2; // 🔁 à remplacer par l'ID réel (depuis session, token, params, etc.)
+  const { firstname, setFirstName, lastname, setLastName, location, setLocation } = profilData();
 
-  const [firstname, setFirstName] = useState("");
-  const [lastname, setLastName] = useState("");
-  const [location, setLocation] = useState("");
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const res = await fetch(`http://localhost:3001/profil/${userId}`);
-        const data = await res.json();
-        console.log("📥 Données récupérées :", data);
-
-        setFirstName(data.firstname || "");
-        setLastName(data.lastname || "");
-        setLocation(data.location || "");
-      } catch (err) {
-        console.error("Erreur lors du chargement du profil :", err);
-      }
-    }
-
-    fetchData();
-  }, [userId]);
+  const userId = 2; // o recibe esto como prop o contexto
 
   const handleSubmitUpdate = async (e) => {
     e.preventDefault();
     try {
       const res = await fetch(`http://localhost:3001/updateProfil/${userId}`, {
         method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          firstname,
-          lastname,
-          location,
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ firstname, lastname, location }),
       });
-
       if (res.ok) {
-        const result = await res.json();
-        console.log("✅ Mise à jour réussie :", result);
         alert("Profil mis à jour !");
       } else {
-        console.error("❌ Échec de la mise à jour");
         alert("Erreur lors de la mise à jour");
       }
     } catch (err) {
-      console.error("❌ Erreur réseau :", err);
+      console.error("Erreur réseau :", err);
+      alert("Erreur réseau");
     }
   };
 
   return (
     <>
-                    <NavBar role="client"/>
-    <form className="flex justify-center" onSubmit={handleSubmitUpdate}>
-      <Card className="flex justify-center border shadow-lg w-96 p-9 m-4">
-        <div className="flex flex-col">
-          <h2 className="text-4xl text-center font-bold">Votre Profil</h2>
+      <NavBar role="client" />
+      <form className="flex justify-center" onSubmit={handleSubmitUpdate}>
+        <Card className="flex justify-center border shadow-lg w-96 p-9 m-4">
+          <div className="flex flex-col">
+            <h2 className="text-4xl text-center font-bold">Votre Profil</h2>
 
-          <label className="text-xl">Prénom</label>
-          <input
-            type="text"
-            name="firstname"
-            value={firstname}
-            onChange={(e) => setFirstName(e.target.value)}
-          />
+            <label className="text-xl">Prénom</label>
+            <input
+              type="text"
+              name="firstname"
+              value={firstname}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
 
-          <label className="text-xl">Nom</label>
-          <input
-            type="text"
-            name="lastname"
-            value={lastname}
-            onChange={(e) => setLastName(e.target.value)}
-          />
+            <label className="text-xl">Nom</label>
+            <input
+              type="text"
+              name="lastname"
+              value={lastname}
+              onChange={(e) => setLastName(e.target.value)}
+            />
 
-          <label className="text-xl">Ville</label>
-          <input
-            type="text"
-            name="location"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-          />
+            <label className="text-xl">Ville</label>
+            <input
+              type="text"
+              name="location"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+            />
 
-          <button
-            type="submit"
-            className="bg-green-600 py-3 px-2 mt-7 rounded-lg shadow-lg text-white"
-          >
-            Mettre à jour
-          </button>
-        </div>
-      </Card>
-    </form>
+            <button
+              type="submit"
+              className="bg-emerald-600 py-3 px-2 mt-7 rounded-lg shadow-lg text-white"
+            >
+              Mettre à jour
+            </button>
+          </div>
+        </Card>
+      </form>
     </>
   );
 }
