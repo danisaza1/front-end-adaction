@@ -16,13 +16,46 @@ export default function Formulaire() {
         console.log("Réponse du serveur :", json);
       };
   
-      const handleChange = async(event) => {
+      const handleChangeName = async(event) => {
           const {type, name, value} =event.target
           setFormData(prev =>{
           return {
           ...prev,
           [name]: value
           }})}
+
+          const handleChangeFirstname = async(event) => {
+            const {type, name, value} =event.target
+            setFormData(prev =>{
+            return {
+            ...prev,
+            [name]: value
+          }})}
+
+          const handleChangeLocation = async(event) => {
+            const {type, name, value} =event.target
+            setFormData(prev =>{
+            return {
+            ...prev,
+            [name]: value
+            }})}
+
+            const handleChangeEmail = async(event) => {
+                const {type, name, value} =event.target
+                setFormData(prev =>{
+                return {
+                ...prev,
+                [name]: value
+                }})}
+
+                const handleChangePassword = async(event) => {
+                    const {type, name, value} =event.target
+                    setFormData(prev =>{
+                    return {
+                    ...prev,
+                    [name]: value
+                    }})}
+
 
           return (
               <div className="Style.form">
@@ -32,16 +65,16 @@ export default function Formulaire() {
                       type = "text"
                       placeholder= "entrez votre nom"
                       value= {formData.lastname  || ""}
-                      onChange={handleChange}
+                      onChange={handleChangeName}
                       name="lastname"
                       />
       
                       <label>prenom :</label>
                       <input 
                       type = "text"
-                      placeholder= "entrez votre nom"
+                      placeholder= "entrez votre prenom"
                       value= {formData.firstname  || ""}
-                      onChange={handleChange}
+                      onChange={handleChangeFirstname}
                       name="firstname"
                       />
                     
@@ -51,25 +84,25 @@ export default function Formulaire() {
                       type = "text"
                       placeholder= "entrez votre adresse"
                       value= {formData.location  || ""}
-                      onChange={handleChange}
+                      onChange={handleChangeLocation}
                       name="location"
                       />
       
                       <label>email:</label>
                       <input 
                       type = "text"
-                      placeholder= "entrez votre adresse"
+                      placeholder= "entrez votre email"
                       value= {formData.email  || ""}
-                      onChange={handleChange}
+                      onChange={handleChangeEmail}
                       name="email"
                       />
       
                        <label>mot de passe:</label>
                       <input 
                       type = "text"
-                      placeholder= "entrez votre adresse"
+                      placeholder= "entrez un mot de passe"
                       value= {formData.password  || ""}
-                      onChange={handleChange}
+                      onChange={handleChangePassword}
                       name="password"
                       />
                       <button type = "submit">envoyer</button>

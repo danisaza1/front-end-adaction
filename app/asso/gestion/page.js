@@ -15,15 +15,8 @@ import { Input } from "../../components/input";
 import SimpleSelect from "../../components/simpleselect";
 import { useState, useEffect } from "react";
 import NavBar from "../../components/navbar";
-import Formulaire from "app/components/formulaire";
 import ListOfVolunteers from "app/components/list-of-volunteers";
-
-
-
-
-
-
-
+import Formulaire from "app/components/formulaire";
 
 export default function profilPage() {
 
@@ -62,7 +55,7 @@ return (
                <Button  type="submit" className="flex gap-2" >
                  <UserPlus className="text-white"/> <p className="text-white normal-case">Ajouter un.e bénévole</p>
               </Button>
-              <Formulaire />
+              <Formulaire/>
             </div>
            <div className="flex flex-row justify-between w-full items-center">
     <div>
@@ -74,8 +67,10 @@ return (
     </div>
 </div>
           </CardHeader>
-        <ListOfVolunteers/> 
-         
+          <CardContent className="flex flex-col items-start">
+         <ListOfVolunteers/>
+            
+          </CardContent>
          
          </Card>
          </CardContent>
