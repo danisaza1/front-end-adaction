@@ -4,10 +4,6 @@ import { Card, CardContent, CardHeader } from '@mui/material';
 import { Cigarette, Package, Wine, Trash2, Smartphone, CircleHelp  } from 'lucide-react';
 import WasteCard from './WasteCard';
 
-//    <Wine />   <Smartphone /> for elect 
-//    <Trash2 /> for metal
-// CircleHelp autres
-// plastic Package
 
 const icons = {
   cigarette_butts: { bg: 'bg-yellow-400', icon: Cigarette, iconColor: 'text-white', title: 'Mégots de cigarette' },
@@ -25,6 +21,13 @@ console.log("ConteneurDashboard :", wastesData);
         {wastesData.map(({ id, type, quantity }) => {
           console.log('type:', type);
           const config = icons[type];
+
+     
+  if (!config) {
+    console.warn(`Type inconnu dans icons: '${type}' (id: ${id})`);
+    // Tu peux soit sauter cet élément, soit afficher un fallback
+    return null; // ne rien afficher pour ce type inconnu
+  }     
           const IconComponent = config.icon;
           return (
             <WasteCard
