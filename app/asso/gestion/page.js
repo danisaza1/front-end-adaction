@@ -1,3 +1,4 @@
+// profilPage.js
 "use client";
 import { Button } from "../../components/button";
 import { UserPlus, MapPin, Pen, Trash2 } from 'lucide-react';
@@ -8,7 +9,7 @@ import NavBar from "../../components/navbar";
 import Formulaire from "../../components/formulaire";
 import CitiesGet from "./dataFetch.js";
 import { Modal } from "../../components/modal";
-import ListOfVolunteers from "../../components/listofvolunteers"
+import ListOfVolunteers from "../../components/listOfVolunteers"
 
 
 export default function ProfilPage() {

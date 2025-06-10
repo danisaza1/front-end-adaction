@@ -7,16 +7,26 @@ import {
 import { Gift } from "lucide-react";
 import DonationCard from "../../components/DonationCard";
 import NavBar from "app/components/navbar";
+import { useAuth } from '../../context/authContext';
 
 
 export default function Dons() {
   // let dataDons = { asso_name, points, volunteer_id};
+  const { user } = useAuth();
  const fetchD = async (asso_name, points) => {
+  if (!user?.id) {
+    console.error("Utilisateur non identifié !");
+    return;
+  }
+
   const response = await fetch("http://localhost:3001/donations", {
+    
     method: "POST",
     headers: { "Content-Type": "application/json"},
     body: JSON.stringify({
-     asso_name, points, volunteerId : 2
+     asso_name, 
+     points, 
+     volunteerId: user.id,
   }),
   });
 
