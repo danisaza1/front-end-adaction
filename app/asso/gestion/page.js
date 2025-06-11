@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "../../components/card";
 import { Input } from "../../components/input";
-import SimpleSelect from "../../components/simpleselect";
+// import SimpleSelect from "../../components/simpleselect";
 import { useState, useEffect } from "react";
 import NavBar from "../../components/navbar";
 import ListOfVolunteers from "app/components/list-of-volunteers";
@@ -63,7 +63,7 @@ return (
     </div>
     <div className="flex items-center"> 
         <MapPin />
-        <SimpleSelect options={cities} value={city} onChange={setCity} />
+        {/* <SimpleSelect options={cities} value={city} onChange={setCity} /> */}
     </div>
 </div>
           </CardHeader>
