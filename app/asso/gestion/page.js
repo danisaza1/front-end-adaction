@@ -1,28 +1,38 @@
 // profilPage.js
 "use client";
 import { Button } from "../../components/button";
-import { UserPlus, MapPin, Pen, Trash2 } from 'lucide-react';
+import { UserPlus, MapPin } from 'lucide-react';
 import { Card, CardContent, CardHeader } from "../../components/card";
 import SimpleSelect from "../../components/simpleselect";
-import { useState, useEffect } from "react";
+import { useState } from "react"; // useEffect is now used within the hooks
 import NavBar from "../../components/navbar";
 import Formulaire from "../../components/formulaire";
-import CitiesGet from "./dataFetch.js";
+import { useCitiesGet, useVolunteersData } from "./dataFetch.js"; // Import the custom hooks
 import { Modal } from "../../components/modal";
-import ListOfVolunteers from "../../components/listOfVolunteers"
-
+import ListOfVolunteers from "../../components/listOfVolunteers";
 
 export default function ProfilPage() {
+  // Use the custom hooks
+  const cities = useCitiesGet();
+  const {
+    volunteers,
+    fetchVolunteers,
+    handleDeleteVolunteer,
+    handleEditVolunteer,
+    editingVolunteer,
+    setEditingVolunteer
+  } = useVolunteersData();
 
-  const cities = CitiesGet();
   const [city, setCity] = useState("");
   const [showForm, setShowForm] = useState(false);
 
-  
   const handleCloseForm = () => {
     setShowForm(false);
+    setEditingVolunteer(null); // Reset editing state when form closes
+    fetchVolunteers(); // Refetch volunteers after form is closed
   };
 
+  // handleEditVolunteer is now directly from useVolunteersData, no need to define it here again
 
   return (
     <>
@@ -32,18 +42,18 @@ export default function ProfilPage() {
           <Card>
             <CardHeader>
               <div className="flex justify-center">
-                {/* Button to open the "Add Volunteer" form modal */}
                 <Button
                   type="button"
-                  onClick={() => setShowForm(true)}
-                //   {/* Set to true to show the form */}
-                  className="flex  gap-2  mb-4 p-6 w-80  text-white normal-case bg-emerald-700 hover:bg-emerald-800 transition-colors duration-200"
+                  onClick={() => {
+                    setEditingVolunteer(null); // Ensure no volunteer is being edited when adding new
+                    setShowForm(true);
+                  }}
+                  className="flex gap-2 mb-4 p-6 w-80 text-white normal-case bg-emerald-700 hover:bg-emerald-800 transition-colors duration-200"
                 >
                   <UserPlus className="text-white" />
                   <p className="text-white normal-case">Ajouter un.e bénévole</p>
                 </Button>
               </div>
-              {/* Search and filter section */}
               <div className="flex flex-row justify-between w-full items-center mb-6">
                 <div className="flex-grow mr-4">
                   <input
@@ -54,20 +64,30 @@ export default function ProfilPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="text-gray-600" />
-                  <SimpleSelect options={cities} value={city}  onChange={setCity} />
+                  <SimpleSelect options={cities} value={city} onChange={setCity} />
                 </div>
               </div>
             </CardHeader>
             <CardContent className="flex flex-col items-start">
-                    <ListOfVolunteers />
+              <ListOfVolunteers
+                volunteers={volunteers}
+                onDelete={handleDeleteVolunteer}
+                onEdit={(volunteer) => { 
+                  handleEditVolunteer(volunteer);
+                  setShowForm(true);
+                }}
+              />
             </CardContent>
           </Card>
         </CardContent>
       </div>
-      {/* The Modal component that conditionally displays the Formulaire */}
       <Modal isOpen={showForm} onClose={handleCloseForm}>
-        {/* Pass the handleCloseForm function to Formulaire so it can close itself */}
-        <Formulaire onClose={handleCloseForm} />
+        <Formulaire
+          onClose={handleCloseForm}
+          onVolunteerAdded={fetchVolunteers} 
+          onVolunteerUpdated={fetchVolunteers} 
+          volunteerToEdit={editingVolunteer}
+        />
       </Modal>
     </>
   );

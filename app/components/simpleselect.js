@@ -12,7 +12,7 @@ export default function SimpleSelect({ options = [], value, onChange }) {
       <option value="">Sélectionnez une ville</option>
       {Array.isArray(options) &&
         options.map((opt) => (
-          <option key={opt.id} value={opt.id.toString()}>
+          <option key={opt.id} value={opt.city_name}>
             {opt.city_name}
           </option>
         ))}

@@ -11,11 +11,13 @@ import {
   CardTitle,
 } from "../../components/card";
 import { Button } from "../../components/button";
-import { CircleAlert, MapPin, Save } from "lucide-react";
+import { CircleAlert, MapPin, Save, CheckCircle } from "lucide-react";
 import { Waste } from "../../components/waste";
 import NavBar from "app/components/navbar";
 import SimpleSelect from "app/components/simpleselect";
-import citiesGet from "./dataCollects.js";
+import CitiesGet from "./dataCollects.js";
+import { useAuth } from './../../context/authContext'; 
+import {Modal} from "../../components/modal";
 
 
 
@@ -24,9 +26,13 @@ export default function Collectes() {
 
   const [date, setDate] = useState(""); //Usestate pour garder des valeurs. Vide pour enregistrer les données du client. SetDate change la valeur.
   const [city, setCity] = useState("");
-  const cities = citiesGet();
+  const cities = CitiesGet();
   const [wasteData, setWaste] = useState([]);
+  const { user } = useAuth();
+  const [isModalOpen, setIsModalOpen] = useState(false); //visibilite
 
+   const openModal = () => setIsModalOpen(true); //ouvrir
+   const closeModal = () => setIsModalOpen(false); //fermer
 
   // Ajouter ou retirer un type de déchet
   const changeWaste = (label) => {
@@ -52,14 +58,28 @@ export default function Collectes() {
     setWaste(updated);
   }
 
+const wasteLabelMap = {
+  "Mégots de cigarette": "cigarette_butts",
+  "Plastique": "plastic",
+  "Verre": "glass",
+  "Métal": "metal",
+  "Electronique": "electronic",
+  "Autre": "others",
+};
+  
+
   // Soumettre les données
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const data = {
       date,
-      city,
-      wasteTypes: wasteData,
+      cityName : city,
+      wasteTypes: wasteData.map(waste => ({
+    label: wasteLabelMap[waste.label], 
+    quantity: waste.quantity,
+     })),
+      volunteerId: user.id,
     };
 
     const res = await fetch("http://localhost:3001/collectes", {
@@ -70,6 +90,7 @@ export default function Collectes() {
 
     const json = await res.json();
     console.log("Réponse du serveur :", json);
+   
   };
 
   // Rendu d’un élément déchet
@@ -138,8 +159,10 @@ export default function Collectes() {
               {renderWaste("📱", "Electronique")}
               {renderWaste("❓", "Autre")}
 
-              <Button type="submit">
-                <Save className="mr-2" />
+              <Button type="submit"
+              onClick={openModal} 
+                >
+                  <Save className="mr-2" />
                 Enregistrer
               </Button>
             </form>
@@ -147,6 +170,21 @@ export default function Collectes() {
         </Card>
       </CardContent>
     </div>
+    <Modal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        title="Collecte Enregistrée" 
+      >
+        <div className="flex flex-col items-center justify-center text-center">
+            <p className="text-gray-700 text-lg mb-4"> Collecte enregistre</p>
+            <button
+                onClick={closeModal}
+                className="bg-emerald-600 text-white px-4 py-2 rounded-md hover:bg-emerald-700 transition"
+            >
+                Fermer
+            </button>
+        </div>
+      </Modal>
     </>
   );
 }
