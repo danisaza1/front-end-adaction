@@ -4,10 +4,6 @@ import { Card, CardContent, CardHeader } from '@mui/material';
 import { Cigarette, Package, Wine, Trash2, Smartphone, CircleHelp  } from 'lucide-react';
 import WasteCard from './WasteCard';
 
-//    <Wine />   <Smartphone /> for elect 
-//    <Trash2 /> for metal
-// CircleHelp autres
-// plastic Package
 
 const icons = {
   cigarette_butts: { bg: 'bg-yellow-400', icon: Cigarette, iconColor: 'text-white', title: 'Mégots de cigarette' },
@@ -18,13 +14,35 @@ const icons = {
   others: { bg: 'bg-red-400', icon: CircleHelp, iconColor: 'text-white', title: 'Autre' },
 };
 export default function ConteneurDashboard ({wastesData}) {
-console.log("ConteneurDashboard :", wastesData);
+console.log("ConteneurDashboard - wastesData received:", wastesData, "Type:", typeof wastesData, "Is Array:", Array.isArray(wastesData));
+
+
+ if (!Array.isArray(wastesData) || wastesData.length === 0) {
   return (
-  <Card style={{ boxShadow: 'none'}}>
+      <Card style={{ boxShadow: 'none'}}>
+        <CardContent className="grid grid-cols gap-2 bg-white">
+          <p className="text-center text-gray-500">
+            {Array.isArray(wastesData) && wastesData.length === 0
+              ? "Aucune donnée de déchets pour le moment." // No hay datos
+              : "Chargement des données ou format de données inattendu..." // Cargando o error de formato
+            }
+          </p>
+        </CardContent>
+      </Card>
+    );
+  }
+
+     return (
+    <Card style={{ boxShadow: 'none'}}>
       <CardContent className="grid grid-cols gap-2 bg-white">
         {wastesData.map(({ id, type, quantity }) => {
           console.log('type:', type);
-          const config = icons[type];
+          const config = icons[type]; 
+  if (!config) {
+    console.warn(`Type inconnu dans icons: '${type}' (id: ${id})`);
+    // Tu peux soit sauter cet élément, soit afficher un fallback
+    return null; // ne rien afficher pour ce type inconnu
+  }     
           const IconComponent = config.icon;
           return (
             <WasteCard
@@ -39,4 +57,3 @@ console.log("ConteneurDashboard :", wastesData);
     </Card>
 );
 }
-

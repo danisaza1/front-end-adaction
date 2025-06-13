@@ -22,8 +22,8 @@ export default function NavBar({ role }) {
         </>
       ) : role === 'asso' ? ( // Sinon, si le rôle est 'asso'
         <>
-          <Link href="/asso/Gestion">Gestion des bénévoles</Link>
-          <Link href="/asso/Leaderboard">Leaderboard</Link>
+          <Link href="/asso/gestion">Gestion des bénévoles</Link>
+          <Link href="/asso/leaderboard">Leaderboard</Link>
         </>
       ) : ( // Sinon (pour tout autre rôle ou si aucun rôle n'est spécifié)
         // Tu peux choisir d'afficher rien, un message, ou des liens par défaut
