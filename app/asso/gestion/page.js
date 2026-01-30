@@ -1,7 +1,7 @@
 // profilPage.js
 "use client";
 import { Button } from "../../components/button";
-import { UserPlus, MapPin } from 'lucide-react';
+import { UserPlus, MapPin } from "lucide-react";
 import { Card, CardContent, CardHeader } from "../../components/card";
 import SimpleSelect from "../../components/simpleselect";
 import { useState } from "react"; // useEffect is now used within the hooks
@@ -20,7 +20,7 @@ export default function ProfilPage() {
     handleDeleteVolunteer,
     handleEditVolunteer,
     editingVolunteer,
-    setEditingVolunteer
+    setEditingVolunteer,
   } = useVolunteersData();
 
   const [city, setCity] = useState("");
@@ -51,7 +51,9 @@ export default function ProfilPage() {
                   className="flex gap-2 mb-4 p-6 w-80 text-white normal-case bg-emerald-700 hover:bg-emerald-800 transition-colors duration-200"
                 >
                   <UserPlus className="text-white" />
-                  <p className="text-white normal-case">Ajouter un.e bénévole</p>
+                  <p className="text-white normal-case">
+                    Ajouter un.e bénévole
+                  </p>
                 </Button>
               </div>
               <div className="flex flex-row justify-between w-full items-center mb-6">
@@ -64,7 +66,11 @@ export default function ProfilPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="text-gray-600" />
-                  <SimpleSelect options={cities} value={city} onChange={setCity} />
+                  <SimpleSelect
+                    options={cities}
+                    value={city}
+                    onChange={setCity}
+                  />
                 </div>
               </div>
             </CardHeader>
@@ -72,7 +78,7 @@ export default function ProfilPage() {
               <ListOfVolunteers
                 volunteers={volunteers}
                 onDelete={handleDeleteVolunteer}
-                onEdit={(volunteer) => { 
+                onEdit={(volunteer) => {
                   handleEditVolunteer(volunteer);
                   setShowForm(true);
                 }}
@@ -84,8 +90,8 @@ export default function ProfilPage() {
       <Modal isOpen={showForm} onClose={handleCloseForm}>
         <Formulaire
           onClose={handleCloseForm}
-          onVolunteerAdded={fetchVolunteers} 
-          onVolunteerUpdated={fetchVolunteers} 
+          onVolunteerAdded={fetchVolunteers}
+          onVolunteerUpdated={fetchVolunteers}
           volunteerToEdit={editingVolunteer}
         />
       </Modal>

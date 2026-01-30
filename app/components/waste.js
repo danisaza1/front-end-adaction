@@ -1,6 +1,5 @@
 "use client";
 
-
 import { Button } from "./button";
 
 function Waste({ emoji, label, quantity, onDecrease, onIncrease, onChange }) {

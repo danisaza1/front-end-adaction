@@ -1,7 +1,5 @@
 "use client";
 
-
-
 export default function SimpleSelect({ options = [], value, onChange }) {
   return (
     <select
@@ -19,6 +17,3 @@ export default function SimpleSelect({ options = [], value, onChange }) {
     </select>
   );
 }
-
-
-

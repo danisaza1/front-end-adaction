@@ -1,5 +1,6 @@
-'use client'; // This component will be rendered on the client side.
-import React, { useEffect, useRef } from 'react';
+"use client"; // This component will be rendered on the client side.
+
+import React, { useEffect, useRef } from "react";
 // The Modal component.
 // isOpen: Boolean to control visibility of the modal.
 // onClose: Function to call when the modal needs to be closed (e.g., clicking outside or a close button).
@@ -16,11 +17,11 @@ export const Modal = ({ isOpen, onClose, children }) => {
     };
     // Add event listener when modal is open.
     if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     }
     // Clean up the event listener when component unmounts or modal closes.
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isOpen, onClose]); // Re-run effect if isOpen or onClose changes.
   // If the modal is not open, don't render anything.
@@ -43,4 +44,3 @@ export const Modal = ({ isOpen, onClose, children }) => {
     </div>
   );
 };
-

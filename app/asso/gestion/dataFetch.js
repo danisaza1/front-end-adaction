@@ -2,7 +2,8 @@
 import { useEffect, useState } from "react";
 
 // Custom Hook for fetching cities
-export function useCitiesGet() { // Changed to a named export and a custom hook
+export function useCitiesGet() {
+  // Changed to a named export and a custom hook
   const [cities, setCities] = useState([]);
 
   async function fetchCities() {
@@ -23,7 +24,8 @@ export function useCitiesGet() { // Changed to a named export and a custom hook
 }
 
 // Custom Hook for managing volunteers data and actions
-export function useVolunteersData() { // New custom hook
+export function useVolunteersData() {
+  // New custom hook
   const [volunteers, setVolunteers] = useState([]);
   const [editingVolunteer, setEditingVolunteer] = useState(null);
 
@@ -50,7 +52,11 @@ export function useVolunteersData() { // New custom hook
         } else {
           const errorData = await res.json();
           console.error("Échec de la suppression:", errorData.error);
-          alert(`Erreur: ${errorData.error || "Impossible de supprimer le bénévole."}`);
+          alert(
+            `Erreur: ${
+              errorData.error || "Impossible de supprimer le bénévole."
+            }`
+          );
         }
       } catch (error) {
         console.error("Erreur réseau lors de la suppression:", error);
@@ -73,6 +79,6 @@ export function useVolunteersData() { // New custom hook
     handleDeleteVolunteer,
     handleEditVolunteer,
     editingVolunteer,
-    setEditingVolunteer // Export setEditingVolunteer to allow ProfilPage to reset it
+    setEditingVolunteer, // Export setEditingVolunteer to allow ProfilPage to reset it
   };
 }
